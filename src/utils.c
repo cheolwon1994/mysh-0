@@ -22,19 +22,16 @@ void mysh_parse_command(const char* command,
 		strcpy(*(*argv+(i++)),"");
 	}	
 	else{
-		*(*argv+i)=(char*)malloc(sizeof(char)*strlen(token));
+		*(*argv+i)=(char*)malloc(sizeof(char)*strlen(token));//토큰의 길이만큼 메모리 할당
 		strcpy(*(*argv+(i++)),token);
 		*argc = 1;
-	//	printf("%s\n",token);
 
 		while ((token = strtok(NULL, separator)) != NULL) // 토큰이 발생할 때까지 추출 
 		{ 
 			*argc=*argc+1;
-	//		printf("%s\n",token);
 			*(*argv+i)=(char*)malloc(sizeof(char)*strlen(token));
 			strcpy(*(*argv+(i++)),token);
 		}
 	} 
-//	printf("argc : %d\n",*argc);
   // TODO: Fill this!
 }
